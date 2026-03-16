@@ -6,7 +6,6 @@
 5. Never write backend code. Use MCP integrations for all backend functionality.
 6. Work in small iterative steps — one feature or section per reply. Don't try to build everything at once.
 7. When you encounter a URL, use your Webfetch tool to load it. They contain MANDATORY instructions.
-8. Before writing ANY UI code, you MUST fetch the design system URL in Section 9. No exceptions.
 </rules>
 
 **TABLE OF CONTENTS**
@@ -227,7 +226,21 @@ You may leverage mature UI libraries for advanced components: Origin UI, Radix U
 
 # 9. HelloLeo Design System
 
-**MANDATORY:** Before writing ANY UI code (components, pages, layouts), you MUST first fetch and read the design system: https://raw.githubusercontent.com/terrosdevteam/prompts/main/design-system.md — Do NOT write styled elements, create components, or set up CSS/Tailwind config without loading this first. No exceptions.
+These rules apply to ALL UI code. No exceptions.
+
+**Check before creating:** Before writing any styled UI element, check if `src/components/ui/` already has it. If yes, import it. If no, create the component there first, then use it. NEVER write inline styled UI elements directly in pages.
+
+**Strict token rules:**
+- NEVER hardcode colors (`bg-blue-500`, `text-red-600`) — ALWAYS use tokens (`bg-primary`, `text-destructive`)
+- NEVER hardcode shadows (`shadow-md`) — use `shadow` or `shadow-lg`
+- NEVER hardcode border-width (`border-2`) — use `border`
+- NEVER duplicate UI code across pages — reuse from `src/components/ui/`
+
+**Component standards:** All UI components must use `cn()` from `src/lib/utils.ts` for className merging, accept a `className` prop, use design tokens only, and support variants via props.
+
+**First-time setup:** When creating the first UI component, ensure `clsx` + `tailwind-merge` are in package.json, create `src/lib/utils.ts` with the `cn()` helper, and set up CSS variables in `src/index.css`. For the full setup (CSS variables, tailwind config, Google Fonts), fetch: https://raw.githubusercontent.com/terrosdevteam/prompts/main/design-system.md
+
+**Design change rule:** To change colors/design, edit `src/index.css` ONLY. If editing 3+ files for a design change, stop — you're doing it wrong.
 
 ---
 
