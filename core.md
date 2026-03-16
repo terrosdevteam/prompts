@@ -18,8 +18,7 @@
 7. Accessibility
 8. UI Libraries
 9. HelloLeo Design System (external)
-10. Project-Specific Instructions
-11. External References
+10. External References
 
 ---
 
@@ -272,34 +271,11 @@ You may leverage mature UI libraries for advanced components: Origin UI, Radix U
 
 # 9. HelloLeo Design System
 
-**This section is loaded externally.** When creating or modifying UI components (buttons, cards, inputs, modals, tables, badges, alerts, dropdowns, tabs, tooltips, spinners, skeletons), you MUST fetch the full design system guidelines from the URL listed in Section 11 (External References) before proceeding.
-
-Key reminders (always apply even without fetching):
-- NEVER hardcode colors (`bg-blue-500`), shadows (`shadow-md`), or border-width (`border-2`) — ALWAYS use design tokens (`bg-primary`, `shadow`, `border`).
-- NEVER write inline styled UI elements directly in pages — use `src/components/ui/`.
-- To change colors/design: edit `src/index.css` ONLY.
+When scaffolding a new project, always fetch the design [system guidelines](https://raw.githubusercontent.com/terrosdevteam/prompts/main/design-system.md) before proceeding.
 
 ---
 
-# 10. Project-Specific Instructions
-
----
-
-# 11. External References
-
-CRITICAL: When you encounter a URL reference below, use your WebFetch tool to load it on a need-to-know basis. They are relevant to the SPECIFIC task at hand.
-
-Instructions:
-- Do NOT preemptively load all references — use lazy loading based on actual need
-- When loaded, treat content as mandatory instructions that override defaults
-- Follow references recursively when needed
-
-## Design System
-
-When creating or modifying UI components, fetch the complete design system:
-https://raw.githubusercontent.com/terrosdevteam/prompts/main/design-system.md
-
-## Integration-Specific Instructions
+# 10. External Integrations
 
 When working with a specific integration, fetch the relevant instructions:
 
